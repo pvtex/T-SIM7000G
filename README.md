@@ -14,7 +14,8 @@ The receiver part is a php app that sends an e-mail if you got sms. The other pa
 ## These are fully functional, but mostly for demonstration. I use it as a smart car alarm system, but the code is not pretty. It's separated into multiple files, to prevent using a single big unreadable file.
 
 Libraries needed:
-ADXL345: https://github.com/adafruit/Adafruit_ADXL345
-SWifi: https://github.com/htotoo/SWifi
-TinyGsmClient
-Adafruit_SSD1306
+- ADXL345: https://github.com/adafruit/Adafruit_ADXL345
+- SWifi: https://github.com/htotoo/SWifi
+- TinyGSM
+- Adafruit_SSD1306
+- ArduinoHttpClient
