@@ -181,18 +181,12 @@ void submitGps()
     HttpClient httpclient = HttpClient(client, SERVER, PORT);
     if (httpclient.get(urii)==0){
       succ = 1;
-      if (submitNum == 1 && smsMessages.length()>0)
-      {
-        Serial.println("Sending sms-es to php");
-        //submit sms-es
-        HttpClient httpclient2 = HttpClient(client, SERVER, PORT);
-      }
     }
   }
   if (succ == 0)
   {
     modemStart();
-    HttpClient httpclient = HttpClient(client, "creativo.hu", 80);
+    HttpClient httpclient = HttpClient(client, SERVER, PORT);
     succ = (httpclient.get(urii) == 0)?2:0;
   }
   if (succ>0)
