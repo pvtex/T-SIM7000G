@@ -7,7 +7,7 @@
 #define REPORTINTERVAL 20
 #define GPRSOFFTIME 100
 
-#define usedisplay 1
+#define usedisplay 0
   
 const char HOSTNAME[] = "GPS4PETS_00001";
 
