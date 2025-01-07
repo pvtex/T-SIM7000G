@@ -173,26 +173,19 @@ void submitGps()
   int vt = (wakeUpByTimer)?1:0;
   int wasAccelEventAnytime = (accelLastHitReal == 0)?0:1;
   int rion = (lastMillisModemUsed==0) ?0:1;
-  String urii = String(PHPSITE) + "?rion="+String(rion)+"&anyaccel="+String(wasAccelEventAnytime)+"&vt="+String(vt)+"&alh="+String(AccelLastHitSec())+"&la="+String(gpsLatitude,6)+"&lo="+ String(gpsLongitude,6) +"&v="+String(gpsIsValid)+"&s=" + String(gpsSpeed) + "&a=" + String(gpsAltitude) + "&ac=" + String(gpsAccuracy) + "&sn=" + String(gpsUSat) + "&ba=" + String(battery, 4);
+  String urii = "/?id=" + myid + "&lat=" + FINALLATI + "&lon=" + FINALLOGI + "&accuracy=" + FINALACCURACY + "&altitude=" + FINALALT + "&speed=" + FINALSPEED + "&battery=" + FINALBAT + "&ignition=" + FINALIGNITION + "&batteryLevel=" + FINALBATLEVEL;
   if (SWifi::IsConnected()) //httpclient when wifi
   {
     SerialMon.write(urii.c_str());
     SerialMon.write("\n");
-    HttpClient httpclient = HttpClient(net, PHPHOST, 80);
+    HttpClient httpclient = HttpClient(client, SERVER, PORT);
     if (httpclient.get(urii)==0){
       succ = 1;
       if (submitNum == 1 && smsMessages.length()>0)
       {
         Serial.println("Sending sms-es to php");
         //submit sms-es
-        HttpClient httpclient2 = HttpClient(net, PHPHOST, 80);
-        if (httpclient2.post(PHPSMSSITE, "text/plain", smsMessages) == 0)
-        {
-          Serial.println("Sent. Deleting sms-es..");
-          //delete all sms-es          //AT+CMGD=1,4 --deletes all
-          modem.sendAT(GF("+CMGD=1,4"));
-          delay(100);
-        }
+        HttpClient httpclient2 = HttpClient(client, SERVER, PORT);
       }
     }
   }
