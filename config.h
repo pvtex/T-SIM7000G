@@ -13,7 +13,7 @@ const char HOSTNAME[] = "GPS4PETS_00001";
 
 #define MOBILEAPN "internet"
 
-const char SERVER[] = "Your Traccar Server IP";
+const char SERVER[] = "http://track.gps4pets.de";
 const int PORT = 5055;
 
 //EDIT WIFI SETTINGS IN wific.h
