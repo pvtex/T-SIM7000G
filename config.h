@@ -9,13 +9,12 @@
 
 #define usedisplay 1
   
-const char HOSTNAME[] = "Car1";
+const char HOSTNAME[] = "GPS4PETS_00001";
 
-#define MOBILEAPN "internet.telekom"
+#define MOBILEAPN "internet"
 
-#define PHPSITE "http://demo.org/gps/submit.php"
-#define PHPHOST "demo.org"
-#define PHPSMSSITE "http://demo.org/gps/submitsms.php"
+const char SERVER[] = "Your Traccar Server IP";
+const int PORT = 5055;
 
 //EDIT WIFI SETTINGS IN wific.h
 
