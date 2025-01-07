@@ -3,7 +3,7 @@
 
 void InitWifi()
 {
-  SWifi::SetAP(HOSTNAME, "GPS4PETS");
+  SWifi::SetAP(HOSTNAME, "12345678");
   SWifi::AddWifi("wifi1", "12345678");
   SWifi::AddWifi("wifi2", "12345678");
   SWifi::SetWifiMode(true, true);
@@ -17,22 +17,22 @@ void handleAdc()
 {
   int x = analogRead(35);
   String a = String(x);
-  server.send(200, "text/plain", "ADC value:" + a + "<br/>Battery: " + String(ReadBattery())); 
+  server.send(200, "text/plain", "<h2>GPS4PETS</h2>ADC value:" + a + "<br/>Battery: " + String(ReadBattery())); 
 }
 
 void handleRoot()
 {
-  server.send(200,"text/html", "<html><body><a href='/gps'>GPS</a><br/><a href='/sensi'>sensitivity</a><br/><a href='/adc'>Adc</a><br/><a href='/sens'>Sensitivity</a><br/></body></html>");
+  server.send(200,"text/html", "<html><body><h2>GPS4PETS</h2><a href='/gps'>GPS</a><br/><a href='/sensi'>sensitivity</a><br/><a href='/adc'>Adc</a><br/><a href='/sens'>Sensitivity</a><br/></body></html>");
 }
 void handleSensi()
 {
-  server.send(200,"text/html", "<html><body><a href='/gps'>GPS</a><br/><a href='/sensi'>sensitivity</a><br/><a href='/adc'>Adc</a><br/><a href='/sens'>Sensitivity</a><br/></body></html>");
+  server.send(200,"text/html", "<html><body><h2>GPS4PETS</h2><a href='/gps'>GPS</a><br/><a href='/sensi'>sensitivity</a><br/><a href='/adc'>Adc</a><br/><a href='/sens'>Sensitivity</a><br/></body></html>");
 }
 
 
 void handleGps()
 {
-  String html = "<html><head><title>TCar</title><meta charset=\"utf-8\"><script src=\"https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/build/ol.js\"></script><link rel=\"stylesheet\" href=\"https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/css/ol.css\"></script><script src=\"https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL\"></script></head><body>GPS:";
+  String html = "<html><head><title>GPS4PETS</title><meta charset=\"utf-8\"><script src=\"https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/build/ol.js\"></script><link rel=\"stylesheet\" href=\"https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/css/ol.css\"></script><script src=\"https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL\"></script></head><body><h2>GPS4PETS</h2>GPS:";
   html += String(gpsLatitude,6);
   html += "   " + String(gpsLongitude,6) + "\n";
   html += "Speed: " + String(gpsSpeed,6) + " kmh\n ";
