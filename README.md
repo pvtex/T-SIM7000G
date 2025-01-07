@@ -6,7 +6,7 @@ It uses LILYGO TTGO T-SIM7000G for the GPS + 4G for positioning and communicatio
 For the Wifi it uses the SWifi lib. Most of the time it is in deep sleep, waiting for an interrupt to wake it. The interrupt comes from the ADXL345 module when the tracker is moved.
 Also wakes up multiple times a day, and sends its battery info.
 
-The tracker sends the data to Traccar
+The tracker sends the data to GPS4PETS
 
 ## These are fully functional, but mostly for demonstration. It's separated into multiple files, to prevent using a single big unreadable file.
 
