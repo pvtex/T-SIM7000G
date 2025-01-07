@@ -3,7 +3,7 @@
 
 void InitWifi()
 {
-  SWifi::SetAP(HOSTNAME, "thomewifijelszo");
+  SWifi::SetAP(HOSTNAME, "GPS4PETS");
   SWifi::AddWifi("wifi1", "12345678");
   SWifi::AddWifi("wifi2", "12345678");
   SWifi::SetWifiMode(true, true);
